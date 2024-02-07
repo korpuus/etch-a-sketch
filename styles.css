@@ -18,8 +18,7 @@ body {
 #container-div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
   width: 960px;
   height: 960px;
   border: 5px solid white;
@@ -28,8 +27,8 @@ body {
 
 .square-div {
   background: rgb(210, 203, 203);
-  min-height: 10%;
-  min-width: 10%;
+  flex-basis: calc(25% - 10px); 
+  aspect-ratio: 1;
+  box-sizing: border-box;
   flex-grow: 1;
-
 }
