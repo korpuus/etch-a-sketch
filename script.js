@@ -24,6 +24,7 @@ function squaresPerSide(squares = 16) {
   }
 }
 squaresPerSide();
+hover();
 //button eventlistener
 
 popupBtn.addEventListener('click', () => {
@@ -32,7 +33,11 @@ popupBtn.addEventListener('click', () => {
   if (squaresNumber <= 100 && 
     squaresNumber >= 4 && 
     squaresNumber % 2 === 0) {
+      Array.from(containerDiv.children).forEach(child => {
+        containerDiv.removeChild(child);
+      });
       squaresPerSide(squares = squaresNumber);
+      hover();
   } else {
     return alert('It should be an even number, and maximum is 100');
   }
@@ -40,6 +45,7 @@ popupBtn.addEventListener('click', () => {
 
 
 //hovering effect
+function hover() {
 const squareDivs = document.querySelectorAll('.square-div');
 
 squareDivs.forEach(squareDiv => {
@@ -47,6 +53,7 @@ squareDivs.forEach(squareDiv => {
     squareDiv.style.background = 'blue';
   });
 })
+}
 
 
 
