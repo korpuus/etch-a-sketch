@@ -36,7 +36,7 @@ popupBtn.addEventListener('click', () => {
       Array.from(containerDiv.children).forEach(child => {
         containerDiv.removeChild(child);
       });
-      squaresPerSide(squares = squaresNumber);
+      squaresPerSide(squares = squaresNumber * 4);
       hover();
   } else {
     return alert('It should be an even number, and maximum is 100');
@@ -50,7 +50,12 @@ const squareDivs = document.querySelectorAll('.square-div');
 
 squareDivs.forEach(squareDiv => {
   squareDiv.addEventListener('mouseover', () => {
-    squareDiv.style.background = 'blue';
+    const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+    const r = randomBetween(0, 255);
+    const g = randomBetween(0, 255);
+    const b = randomBetween(0, 255);
+    const rgb = `rgb(${r},${g},${b})`;
+    squareDiv.style.background = rgb;
   });
 })
 }
