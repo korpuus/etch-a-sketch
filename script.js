@@ -1,17 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 //button with prompt
+const buttonDiv = document.createElement('div');
+buttonDiv.setAttribute('id', 'button-div');
+document.body.append(buttonDiv);
+
 const popupBtn = document.createElement('button');
-popupBtn.setAttribute('id', 'popupbtn');
-document.body.append(popupBtn);
+popupBtn.setAttribute('id', 'popup-btn');
+buttonDiv.appendChild(popupBtn);
 popupBtn.textContent = 'Grid size';
 
 
-function numberOfSquares(x){
-  x = +prompt('Enter a number of squares per side: ');
+
+function numberOfSquares(){
+  return +prompt('Enter number of squares per side: ');
 };
 
-//creating divs
+//creating divs for grid screen
 const containerDiv = document.createElement('div');
 containerDiv.setAttribute('id', 'container-div');
 document.body.appendChild(containerDiv);
@@ -32,6 +37,9 @@ squareDivs.forEach(squareDiv => {
     squareDiv.style.background = 'blue';
   });
 })
+
+
+
 });
 
 
