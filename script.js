@@ -23,6 +23,7 @@ function squaresPerSide(squares = 16) {
     squareDiv.setAttribute('class', 'square-div');
   }
 }
+
 squaresPerSide();
 hover();
 //button eventlistener
