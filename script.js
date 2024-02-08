@@ -18,7 +18,6 @@ document.body.appendChild(containerDiv);
 
 
 function squaresGrid(squaresPerSide = 16) {
-  // Clear the container
   containerDiv.innerHTML = '';
 
 
@@ -66,6 +65,8 @@ squareDivs.forEach(squareDiv => {
     const b = randomBetween(0, 255);
     const rgb = `rgb(${r},${g},${b})`;
     squareDiv.style.background = rgb;
+
+
   });
 })
 }
