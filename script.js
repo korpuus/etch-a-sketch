@@ -18,19 +18,22 @@ document.body.appendChild(containerDiv);
 
 
 function squaresGrid(squaresPerSide = 16) {
+  // Clear the container
   containerDiv.innerHTML = '';
 
-  for (let i = 0; i < squaresPerSide; i++) {
-    const rowDiv = document.createElement('div');
-    rowDiv.classList.add('row-div');
-    containerDiv.appendChild(rowDiv);
 
-    for (let j = 0; j < squaresPerSide; j++) {
-     
-      const squareDiv = document.createElement('div');
-      squareDiv.setAttribute('class', 'square-div');
-      rowDiv.appendChild(squareDiv);
-    }
+  // Calculate square size based on container dimensions and number of squares per side
+  const containerSize = Math.min(containerDiv.offsetWidth, containerDiv.offsetHeight);
+  const squareSize = containerSize / squaresPerSide;
+
+  
+  for (let i = 0; i < squaresPerSide * squaresPerSide; i++) {
+    
+    const squareDiv = document.createElement('div');
+    squareDiv.setAttribute('class', 'square-div');
+    squareDiv.style.width = `${squareSize}px`;
+    squareDiv.style.height = `${squareSize}px`;
+    containerDiv.appendChild(squareDiv);
   }
 }
 
