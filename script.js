@@ -23,17 +23,17 @@ function squaresGrid(squaresPerSide = 16) {
 
 
   // Calculate square size based on container dimensions and number of squares per side
-  const containerSize = Math.min(containerDiv.offsetWidth, containerDiv.offsetHeight);
+  const containerSize = Math.min(960, 960);
   const squareSize = containerSize / squaresPerSide;
 
   
-  for (let i = 0; i < squaresPerSide * squaresPerSide; i++) {
-    
+  for (let i = 0; i < squaresPerSide; i++) {
+    for (let i = 0; i < squaresPerSide; i++){
     const squareDiv = document.createElement('div');
     squareDiv.setAttribute('class', 'square-div');
     squareDiv.style.width = `${squareSize}px`;
     squareDiv.style.height = `${squareSize}px`;
-    containerDiv.appendChild(squareDiv);
+    containerDiv.appendChild(squareDiv);}
   }
 }
 
@@ -49,7 +49,7 @@ popupBtn.addEventListener('click', () => {
     squaresGrid(squaresFromUser);
     hover();
   } else {
-    alert('It should be an even number, and maximum is 100');
+    alert('It should be an even number, that is minimum 4 and maximum 100');
   }
 });
 
