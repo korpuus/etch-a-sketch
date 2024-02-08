@@ -15,32 +15,38 @@ const containerDiv = document.createElement('div');
 containerDiv.setAttribute('id', 'container-div');
 document.body.appendChild(containerDiv);
 
-//loop for grid dimensions
-function squaresPerSide(squares = 16) {
-  for (let i = 0; i < squares; i++) {
-    const squareDiv = document.createElement('div');
-    containerDiv.appendChild(squareDiv);
-    squareDiv.setAttribute('class', 'square-div');
+
+
+function squaresGrid(squaresPerSide = 16) {
+  containerDiv.innerHTML = '';
+
+  for (let i = 0; i < squaresPerSide; i++) {
+    const rowDiv = document.createElement('div');
+    rowDiv.classList.add('row-div');
+    containerDiv.appendChild(rowDiv);
+
+    for (let j = 0; j < squaresPerSide; j++) {
+     
+      const squareDiv = document.createElement('div');
+      squareDiv.setAttribute('class', 'square-div');
+      rowDiv.appendChild(squareDiv);
+    }
   }
 }
 
-squaresPerSide();
+squaresGrid();
 hover();
-//button eventlistener
 
+// Event listener for the button click
 popupBtn.addEventListener('click', () => {
+  let squaresFromUser = +prompt('Enter number of squares per side: ');
 
-  let squaresNumber = +prompt('Enter number of squares per side: ');
-  if (squaresNumber <= 100 && 
-    squaresNumber >= 4 && 
-    squaresNumber % 2 === 0) {
-      Array.from(containerDiv.children).forEach(child => {
-        containerDiv.removeChild(child);
-      });
-      squaresPerSide(squares = squaresNumber * 4);
-      hover();
+  if (squaresFromUser <= 100 && squaresFromUser >= 4 && squaresFromUser % 2 === 0) {
+
+    squaresGrid(squaresFromUser);
+    hover();
   } else {
-    return alert('It should be an even number, and maximum is 100');
+    alert('It should be an even number, and maximum is 100');
   }
 });
 
