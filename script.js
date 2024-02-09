@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+
 
   //button with prompt
   const buttonDiv = document.createElement('div');
@@ -100,4 +100,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-});
+
